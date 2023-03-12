@@ -70,9 +70,13 @@ export function addEventListener<T extends Event>(
 
 
 
-export function removeEventListener<T extends Event>(
-  event: T) {
-  return emitter.removeListener(event);
+export function removeEventListener<T extends Event(
+  event: T,
+  listener: EventPayloadByEvent[T] extends never
+    ? () => void
+    : (event: EventPayloadByEvent[T]) => void
+) {
+  return emitter.removeListener(event, listener);
 }
 
 /**
