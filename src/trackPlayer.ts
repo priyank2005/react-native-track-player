@@ -68,6 +68,14 @@ export function addEventListener<T extends Event>(
   return emitter.addListener(event, listener);
 }
 
+
+
+export function removeEventListener<T extends Event>(
+  event: T) => void
+) {
+  return emitter.removeListener(event);
+}
+
 /**
  * @deprecated This method should not be used, most methods reject when service is not bound.
  */
