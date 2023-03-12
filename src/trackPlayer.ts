@@ -71,8 +71,7 @@ export function addEventListener<T extends Event>(
 
 
 export function removeEventListener<T extends Event>(
-  event: T) => void
-) {
+  event: T) {
   return emitter.removeListener(event);
 }
 
